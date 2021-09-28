@@ -3,61 +3,125 @@
     <header>
       <nav>
         <ul>
-          <li class="float__left"><div>Menu</div></li>
-          <li><a href="#">Pietro's Pizzeria</a></li>
-          <li class="float__right"><div>About us</div></li>
+          <li class="float__left"><a href="#">Pietro's Pizzeria</a></li>
+          <li><div class="nav__button">Menü</div></li>
+          <li><div class="nav__button">Reservierung</div></li>
+          <li><div class="nav__button">Gallerie</div></li>
+          <li class="float__right">
+            <button
+              class="menu"
+              onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
+              aria-label="Main Menu"
+            >
+              <svg width="100" height="100" viewBox="0 0 100 100">
+                <path
+                  class="line line1"
+                  d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"
+                />
+                <path class="line line2" d="M 20,50 H 80" />
+                <path
+                  class="line line3"
+                  d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"
+                />
+              </svg>
+            </button>
+          </li>
         </ul>
       </nav>
     </header>
-    <div class="section__1">
-      <div class="content__page">
+    <div class="content__page">
+      <div class="section__1">
         <div class="content__card">
-          <div class="content_image_container">
-            <img
-              src="src\images\serjan-midili--9LB0GKPF0o-unsplash.jpg"
-              alt="Pizza image"
-            />
+          <div class="content_text_container grid_element_wide">
+            <h2>Herzlich Wilkommen!</h2>
+            <p>
+              Tauchen Sie ein in eine italienische Welt voller kulinarischer
+              Genüsse! Bei uns wird Ihr Gaumen verwöhnt und Ihr Besuch zu einem
+              unvergesslichen Erlebnis! Wir freuen uns Sie als unseren Gast
+              begrüßen zu dürfen, bis dahin, Salute e buon Appetito!
+            </p>
+          </div>
+          <div class="content_text_container restaurant__data">
+            <h3>Adresse:</h3>
+            <span>Jägerstraße 26, 1200 Wien</span>
+            <br />
+            <h3>Öffnungszeiten:</h3>
+            <span>Mo-Sa 09:00 - 19:00</span>
           </div>
           <div class="content_text_container grid_element_wide">
-            <h2>Pizza!</h2>
+            <h2>Angebot:</h2>
+            <p>
+              <strong>
+                Bei einer Bestellung über 30€ erhalten Sie
+                <h2>eine 1.5L Cola-Flasche gratis dazu!</h2>
+              </strong>
+            </p>
+          </div>
+          <div
+            class="content_text_container restaurant__data grid_element_wide"
+          >
+            <h2>Besuchen Sie uns oder bestellen Sie jetzt!</h2>
+            <br />
+            <h3>Tel-Nr.: 0108150815</h3>
+            <h4>E-Mail: pietros_pizzi@pietro.pizza</h4>
+          </div>
+        </div>
+      </div>
+      <div class="section__gap">
+        <h2>Original italienisch nur mit den besten Zutaten!</h2>
+      </div>
+      <div class="section__2">
+        <div class="content__card">
+          <div class="content_text_container grid_element_wide">
+            <h3>Bio delizioso!</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Et vero
               animi aut atque mollitia suscipit quasi optio rerum. Iusto hic
               fugiat voluptatum porro. Quia sequi blanditiis delectus, iusto non
-              quasi!
+              quasi!Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
+              vero animi aut atque mollitia suscipit quasi optio rerum. Iusto
+              hic fugiat voluptatum porro. Quia sequi blanditiis delectus, iusto
+              non quasi!Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Et vero animi aut atque mollitia suscipit quasi optio rerum. Iusto
+              hic fugiat voluptatum porro. Quia sequi blanditiis delectus, iusto
+              non quasi!
+            </p>
+          </div>
+          <div class="content_image_container">
+            <img
+              style="height: 350px"
+              src="src\images\kateryna-moskalova--SCfP2RB7Zc-unsplash.jpg"
+              alt="Pizza image"
+            />
+          </div>
+        </div>
+        <div class="content__card">
+          <div class="content_image_container">
+            <img
+              style="height: 700px"
+              src="src\images\benu-marinescu-e6ZOmEfNHLM-unsplash.jpg"
+              alt="Pizza image"
+            />
+          </div>
+          <div class="content_text_container grid_element_wide">
+            <h3>Bio delizioso!</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Et vero
+              animi aut atque mollitia suscipit quasi optio rerum. Iusto hic
+              fugiat voluptatum porro. Quia sequi blanditiis delectus, iusto non
+              quasi!Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
+              vero animi aut atque mollitia suscipit quasi optio rerum. Iusto
+              hic fugiat voluptatum porro. Quia sequi blanditiis delectus, iusto
+              non quasi!Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Et vero animi aut atque mollitia suscipit quasi optio rerum. Iusto
+              hic fugiat voluptatum porro. Quia sequi blanditiis delectus, iusto
+              non quasi!
             </p>
           </div>
         </div>
       </div>
     </div>
-    <div class="section__gap">
-      <h2>Original italienisch nur mit den besten Zutaten!</h2>
-    </div>
-    <div class="section__2">
-      <div class="content__card">
-        <div class="content_text_container grid_element_wide">
-          <h2>Pizza!</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et vero
-            animi aut atque mollitia suscipit quasi optio rerum. Iusto hic
-            fugiat voluptatum porro. Quia sequi blanditiis delectus, iusto non
-            quasi!Lorem ipsum dolor sit amet consectetur adipisicing elit. Et vero
-            animi aut atque mollitia suscipit quasi optio rerum. Iusto hic
-            fugiat voluptatum porro. Quia sequi blanditiis delectus, iusto non
-            quasi!Lorem ipsum dolor sit amet consectetur adipisicing elit. Et vero
-            animi aut atque mollitia suscipit quasi optio rerum. Iusto hic
-            fugiat voluptatum porro. Quia sequi blanditiis delectus, iusto non
-            quasi!
-          </p>
-        </div>
-        <div class="content_image_container">
-          <img style="height: 500px"
-            src="src\images\kateryna-moskalova--SCfP2RB7Zc-unsplash.jpg"
-            alt="Pizza image"
-          />
-        </div>
-      </div>
-    </div>
+    <div class="footer"></div>
   </div>
 </template>
 
@@ -65,23 +129,33 @@
 export default {
   data() {
     return {
-      counter: 15,
+      menuVisible: true,
+      mainPageVisivle: true,
+      galleryVisible: true,
+      reservationsVisible: true,
     };
   },
-  methods: {
-    count(value) {
-      this.counter + value;
-    },
-  },
+  methods: {},
 };
 </script>
 
 <style lang="scss" scoped>
+body {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+}
 // Backroung-Image-Sections
 
 .section__gap {
   background-color: rgb(8, 98, 8);
+  border-top: 3px solid white;
+  border-bottom: 3px solid white;
   height: 10vh;
+  min-height: 80px;
   text-align: center;
   h2 {
     color: white;
@@ -158,41 +232,80 @@ header {
           font-size: 3.5rem;
         }
       }
-      div {
-        display: inline-block;
-        font-size: 3rem;
-        margin: 1rem 1rem 0 1rem;
-        background-color: green;
-        border: 3px solid rgba(42, 91, 195, 0.35);
-        box-shadow: 0 0 1px 0px black inset, 0 0 1px 0px black;
-        border-radius: 600px;
-        cursor: pointer;
-        @media screen and (max-width: 500px) {
-          font-size: 1.2rem;
-          margin: 0.3rem;
-        }
-        @media screen and (min-width: 501px) and (max-width: 800px) {
-          font-size: 1.6rem;
-          margin: 2rem;
-        }
+      div.nav__button {
+        font-family: "Rubik", sans-serif;
+        font-size: 2rem;
+        margin: 1.5rem 1vw 0 10vw;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: rgb(8, 98, 8);
+        box-shadow: -4px 4px black;
         &:hover {
-          background-color: rgb(17, 199, 17);
-          transform: translateY(-3px);
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+          background-color: rgb(14, 129, 14);
+          cursor: pointer;
         }
         &:active {
-          transform: translateY(-1px);
-          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-          user-select: none;
-          -moz-user-select: none;
-          -webkit-user-select: none;
-          -webkit-touch-callout: none;
-          -ms-user-select: none;
+          transform: translate(-2px, 2px);
+          box-shadow: 0px 0px;
+        }
+        @media screen and (max-width: 1100px) {
+          display: none;
         }
       }
     }
   }
+  .menu {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    padding: 0;
+    width: 15vw;
+    margin-top: -5vh;
+    @media screen and (min-width: 1100px) {
+      display: none;
+    }
+    @media screen and (min-width: 700px) {
+      margin: 0;
+    }
+  }
+  .line {
+    fill: none;
+    stroke: white;
+    stroke-width: 6;
+    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+      stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .line1 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+  }
+  .line2 {
+    stroke-dasharray: 60 60;
+    stroke-width: 6;
+  }
+  .line3 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+  }
+  .opened .line1 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+  }
+  .opened .line2 {
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+    stroke-width: 6;
+  }
+  .opened .line3 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+  }
 }
+// Hamburger-Button
+
 // Utility Stlye Classes
 .float__right {
   float: right;
@@ -203,18 +316,19 @@ header {
 }
 // Content Page Styles
 .content__page {
-  margin-top: 11vh;
+  margin-top: 12vh;
   width: 100vw;
   bottom: 0px;
   @media screen and (max-width: 500px) {
-    margin-top: 6vh
+    margin-top: 6vh;
   }
 }
 .content__card {
+  font-family: "Rubik", sans-serif;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.52);
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.42);
   @media screen and (max-width: 800px) {
     grid-template-columns: 1fr;
   }
@@ -245,6 +359,27 @@ header {
 .grid_element_whole_width {
   grid-column: span 3 / auto;
 }
+
+.restaurant__data {
+  color: white;
+  font-size: 2rem;
+  background-color: rgba(180, 22, 22, 0.767);
+  border: 3px solid white;
+  border-radius: 30px;
+  padding: 10px;
+  h2 {
+    font-family: "Bonheur Royale", cursive, sans-serif;
+  }
+}
+
+.footer {
+  width: 100vw;
+  height: 6vh;
+  background-color: rgb(189, 3, 3);
+  bottom: 0;
+  position: fixed;
+  border-top: 3px solid white;
+}
 </style>
 
 <style>
@@ -253,21 +388,4 @@ header {
   padding: 0;
   box-sizing: border-box;
 }
-
-/* body::before {
-  min-height: 100%;
-  content: "";
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  background-image: url("src/images/shourav-sheikh-a66sGfOnnqQ-unsplash.jpg");
-  background-repeat: repeat-x;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  filter: brightness(0.6);
-  z-index: -10;
-} */
 </style>
