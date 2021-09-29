@@ -3,10 +3,16 @@
     <header>
       <nav>
         <ul>
-          <li class="float__left"><a href="#">Pietro's Pizzeria</a></li>
-          <li><div class="nav__button">Menü</div></li>
-          <li><div class="nav__button">Reservierung</div></li>
-          <li><div class="nav__button">Gallerie</div></li>
+          <li class="float__left">
+            <a href="#" @click="mainPage">Pietro's Pizzeria</a>
+          </li>
+          <li><div class="nav__button" @click="menuPage">Menü</div></li>
+          <li>
+            <div class="nav__button" @click="reservationsPage">
+              Reservierung
+            </div>
+          </li>
+          <li><div class="nav__button" @click="galleryPage">Gallerie</div></li>
           <li class="float__right">
             <button
               class="menu"
@@ -29,7 +35,7 @@
         </ul>
       </nav>
     </header>
-    <div class="content__page">
+    <div class="content__page" v-show="mainPageVisible">
       <div class="section__1">
         <div class="content__card">
           <div class="content_text_container grid_element_wide">
@@ -121,33 +127,56 @@
         </div>
       </div>
     </div>
+    <TheMenu v-show="menuVisible" />
     <div class="footer"></div>
   </div>
 </template>
 
 <script>
+import TheMenu from "./components/Menu.vue";
+
 export default {
+  components: {
+    TheMenu: TheMenu,
+  },
   data() {
     return {
-      menuVisible: true,
-      mainPageVisivle: true,
-      galleryVisible: true,
-      reservationsVisible: true,
+      mainPageVisible: true,
+      menuVisible: false,
+      galleryVisible: false,
+      reservationsVisible: false,
     };
   },
-  methods: {},
+  methods: {
+    mainPage() {
+      this.mainPageVisible = true;
+      this.menuVisible = false;
+      this.galleryVisible = false;
+      this.reservationsVisible = false;
+    },
+    menuPage() {
+      this.mainPageVisible = false;
+      this.menuVisible = true;
+      this.galleryVisible = false;
+      this.reservationsVisible = false;
+    },
+    galleryPage() {
+      this.mainPageVisible = false;
+      this.menuVisible = false;
+      this.galleryVisible = true;
+      this.reservationsVisible = false;
+    },
+    reservationsPage() {
+      this.mainPageVisible = false;
+      this.menuVisible = false;
+      this.galleryVisible = false;
+      this.reservationsVisible = true;
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-body {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  height: 100vh;
-  width: 100vw;
-  margin: 0;
-}
 // Backroung-Image-Sections
 
 .section__gap {
@@ -235,7 +264,7 @@ header {
       div.nav__button {
         font-family: "Rubik", sans-serif;
         font-size: 2rem;
-        margin: 1.5rem 1vw 0 10vw;
+        margin: 1.5rem 1vw 0 5vw;
         padding: 10px;
         box-sizing: border-box;
         background-color: rgb(8, 98, 8);
@@ -247,6 +276,10 @@ header {
         &:active {
           transform: translate(-2px, 2px);
           box-shadow: 0px 0px;
+        }
+        @media screen and (max-width: 1350) {
+          padding: 0px;
+          margin: 0rem 0rem 0rem 0rem;
         }
         @media screen and (max-width: 1100px) {
           display: none;
@@ -304,7 +337,6 @@ header {
     stroke-width: 6;
   }
 }
-// Hamburger-Button
 
 // Utility Stlye Classes
 .float__right {
@@ -348,7 +380,7 @@ header {
 .content_text_container {
   color: white;
   font-size: 1.5rem;
-  margin: 1rem;
+  margin: 2rem;
   min-height: 60px;
 }
 
@@ -367,6 +399,11 @@ header {
   border: 3px solid white;
   border-radius: 30px;
   padding: 10px;
+  word-wrap: break-word;
+  @media screen and (max-width: 600px) {
+    font-size: 1.3rem;
+    padding: 20px;
+  }
   h2 {
     font-family: "Bonheur Royale", cursive, sans-serif;
   }
@@ -387,5 +424,12 @@ header {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  background-color: rgb(8, 98, 8);
 }
 </style>
