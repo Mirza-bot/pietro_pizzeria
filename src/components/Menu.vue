@@ -8,10 +8,10 @@
           src="src\images\pizzas\6d789a91-a79e-4e8a-a374-62efa0bf3f61_d3.jpg"
           alt="Pizza Venezia"
         />
-        <div>
+        <div class="dish__data">
           <span>9,90€</span>
           <h4>Zutaten:</h4>
-          <div>
+          <div class="dish__description">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
               unde officia asperiores, quam provident atque.
@@ -25,10 +25,10 @@
           src="src\images\pizzas\7c80f97d-04ab-4ee1-bb12-829ab3f01255_d3.jpg"
           alt="Pizza Spinaci"
         />
-        <div>
+        <div class="dish__data">
           <span>9,10€</span>
           <h4>Zutaten:</h4>
-          <div>
+          <div class="dish__description">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
               unde officia asperiores, quam provident atque.
@@ -42,10 +42,10 @@
           src="src\images\pizzas\683c4029-195f-4692-a791-e0dc66c667bd_d3.jpg"
           alt="Pizza al Prosciutto"
         />
-        <div>
+        <div class="dish__data">
           <span>9,30€</span>
           <h4>Zutaten:</h4>
-          <div>
+          <div class="dish__description">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
               unde officia asperiores, quam provident atque.
@@ -59,10 +59,10 @@
           src="src\images\pizzas\ab7ddbb9-2db9-419c-8046-bda2f8bcc406_d3.jpg"
           alt="Pizza Tonno"
         />
-        <div>
+        <div class="dish__data">
           <span>9,60€</span>
           <h4>Zutaten:</h4>
-          <div>
+          <div class="dish__description">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
               unde officia asperiores, quam provident atque.
@@ -76,10 +76,10 @@
           src="src\images\pizzas\b0007adf-ab11-4de8-bc95-3053cecc95af_d3.jpg"
           alt="Pizza Quatro Formaggi"
         />
-        <div>
+        <div class="dish__data">
           <span>9,80€</span>
           <h4>Zutaten:</h4>
-          <div>
+          <div class="dish__description">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
               unde officia asperiores, quam provident atque.
@@ -93,10 +93,10 @@
           src="src\images\pizzas\c3cf257d-48ca-4666-aa60-81e9abff6ad4_d3.jpg"
           alt="Calzone Pizza"
         />
-        <div>
+        <div class="dish__data">
           <span>9,90€</span>
           <h4>Zutaten:</h4>
-          <div>
+          <div class="dish__description">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
               unde officia asperiores, quam provident atque.
@@ -110,10 +110,10 @@
           src="src\images\pizzas\c48aa02e-da23-4e84-8e27-d9f91b8bd393_d3.jpg"
           alt="Pizza Salami"
         />
-        <div>
+        <div class="dish__data">
           <span>9,90€</span>
           <h4>Zutaten:</h4>
-          <div>
+          <div class="dish__description">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
               unde officia asperiores, quam provident atque.
@@ -127,13 +127,14 @@
           src="src\images\pizzas\dbd46702-c8de-482c-bc9f-26bd9b66632a_d3.jpg"
           alt="Pizza Pietro"
         />
-        <div>
+        <div class="dish__data">
           <span>10,90€</span>
           <h4>Zutaten:</h4>
-          <div>
+          <div class="dish__description">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
-              unde officia asperiores, quam provident atque.
+              unde officia asperiores, quam provident atque.Porro
+              unde officia asperiores.
             </p>
           </div>
         </div>
@@ -177,6 +178,11 @@ export default {
   margin: 0 3vw 1rem 2.5vw;
   min-height: 30vh;
   @media screen and (max-width: 700px) {
+    min-height: 60vh;
+    width: 99%;
+    margin: 10px 2px 0px 2px;
+  }
+  @media screen and (max-width: 350px) {
     min-height: 80vh;
   }
   h3 {
@@ -191,16 +197,16 @@ export default {
   img {
     margin: 1rem;
     @media screen and (max-width: 500px) {
-      margin-left: 12.5vw;
+      margin-left: 15%;
     }
   }
-  div {
+  div.dish__data {
     float: right;
     margin: 1%;
-    max-width: 70%;
+    max-width: 75%;
     @media screen and (max-width: 600px) {
-      float: none;
-      margin-left: 10%;
+      float: left;
+      max-width: 100%;
     }
     span {
       font-size: 1.5rem;
@@ -209,10 +215,11 @@ export default {
     h4 {
       font-size: 1.5rem;
     }
-    div {
+    div.dish__description {
       float: left;
       font-size: 1.1rem;
       margin: 1rem 0 0 0;
+      max-width: 80%;
     }
   }
 }

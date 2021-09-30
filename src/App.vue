@@ -1,21 +1,48 @@
 <template>
   <div>
+    <div id="active"></div>
     <header>
       <nav>
         <ul>
           <li class="float__left">
             <a href="#" @click="mainPage">Pietro's Pizzeria</a>
           </li>
-          <li><div class="nav__button" @click="menuPage">Menü</div></li>
           <li>
-            <div class="nav__button" @click="reservationsPage">
+            <div
+              class="nav__button"
+              @click="
+                menuPage();
+                setActive($event);
+              "
+            >
+              Menü
+            </div>
+          </li>
+          <li>
+            <div
+              class="nav__button"
+              @click="
+                reservationsPage();
+                setActive($event);
+              "
+            >
               Reservierung
             </div>
           </li>
-          <li><div class="nav__button" @click="galleryPage">Gallerie</div></li>
+          <li>
+            <div
+              class="nav__button"
+              @click="
+                galleryPage();
+                setActive($event);
+              "
+            >
+              Gallerie
+            </div>
+          </li>
           <li class="float__right">
             <button
-              class="menu"
+              class="mobile__menu"
               onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
               aria-label="Main Menu"
             >
@@ -35,6 +62,13 @@
         </ul>
       </nav>
     </header>
+    <div class="mobile__dropdown">
+      <ul>
+        <li @click="menuPage()">Menü</li>
+        <li @click="reservationsPage()">Reservierung</li>
+        <li @click="galleryPage()">Gallerie</li>
+      </ul>
+    </div>
     <div class="content__page" v-show="mainPageVisible">
       <div class="section__1">
         <div class="content__card">
@@ -104,7 +138,7 @@
         <div class="content__card">
           <div class="content_image_container">
             <img
-              style="height: 700px"
+              style="height: 750px"
               src="src\images\benu-marinescu-e6ZOmEfNHLM-unsplash.jpg"
               alt="Pizza image"
             />
@@ -148,6 +182,19 @@ export default {
     };
   },
   methods: {
+    setActive(event) {
+      this.removeActive();
+      const target = event["path"][0];
+      target.id = "active";
+    },
+    removeActive() {
+      try {
+        const currentActive = document.getElementById("active");
+        currentActive.id = "";
+      } catch {
+        console.log("no active-id found.");
+      }
+    },
     mainPage() {
       this.mainPageVisible = true;
       this.menuVisible = false;
@@ -222,6 +269,7 @@ export default {
   z-index: -10;
 }
 // Navbar and Header Styles
+
 header {
   z-index: 1;
   background: rgb(189, 3, 3);
@@ -261,16 +309,20 @@ header {
           font-size: 3.5rem;
         }
       }
-      div.nav__button {
+      div#active {
+        text-decoration: underline;
+        &:hover {
+          text-shadow: 0px 0px 6px rgb(202, 144, 144);
+        }
+      }
+      .nav__button {
         font-family: "Rubik", sans-serif;
         font-size: 2rem;
-        margin: 1.5rem 1vw 0 5vw;
+        margin: 1rem 1vw 0 5vw;
         padding: 10px;
         box-sizing: border-box;
-        background-color: rgb(8, 98, 8);
-        box-shadow: -4px 4px black;
         &:hover {
-          background-color: rgb(14, 129, 14);
+          text-shadow: 0px 0px 6px rgb(195, 134, 134);
           cursor: pointer;
         }
         &:active {
@@ -287,7 +339,8 @@ header {
       }
     }
   }
-  .menu {
+  //Mobile: Hamburger-Button
+  .mobile__menu {
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -335,6 +388,26 @@ header {
     stroke-dasharray: 90 207;
     stroke-dashoffset: -134;
     stroke-width: 6;
+  }
+}
+//Mobile: Dropdown-Menu
+.mobile__dropdown {
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  font-family: "Rubik", sans-serif;
+  font-size: 1.3rem;
+  ul {
+    li {
+      border-bottom: 2px solid green;
+      padding: 1.5rem;
+      text-align: center;
+      &:active {
+        color: white;
+        background-color:  rgb(8, 98, 8);
+      }
+
+    }
   }
 }
 
