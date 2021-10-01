@@ -133,8 +133,8 @@
           <div class="dish__description">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
-              unde officia asperiores, quam provident atque.Porro
-              unde officia asperiores.
+              unde officia asperiores, quam provident atque.Porro unde officia
+              asperiores.
             </p>
           </div>
         </div>
@@ -146,9 +146,7 @@
 <script>
 export default {
   data() {
-    return {
-      counter: 0,
-    };
+    return {};
   },
 };
 </script>

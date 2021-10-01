@@ -43,7 +43,7 @@
           <li class="float__right">
             <button
               class="mobile__menu"
-              onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
+              @click="toggleHamburgerButton()"
               aria-label="Main Menu"
             >
               <svg width="100" height="100" viewBox="0 0 100 100">
@@ -61,14 +61,18 @@
           </li>
         </ul>
       </nav>
+      <div class="mobile__dropdown">
+        <ul>
+          <li @click="menuPage()" v-show="mobileDropdownVisible">Menü</li>
+          <li @click="reservationsPage()" v-show="mobileDropdownVisible">
+            Reservierung
+          </li>
+          <li @click="galleryPage()" v-show="mobileDropdownVisible">
+            Gallerie
+          </li>
+        </ul>
+      </div>
     </header>
-    <div class="mobile__dropdown">
-      <ul>
-        <li @click="menuPage()">Menü</li>
-        <li @click="reservationsPage()">Reservierung</li>
-        <li @click="galleryPage()">Gallerie</li>
-      </ul>
-    </div>
     <div class="content__page" v-show="mainPageVisible">
       <div class="section__1">
         <div class="content__card">
@@ -162,16 +166,22 @@
       </div>
     </div>
     <TheMenu v-show="menuVisible" />
+    <TheReservations v-show="reservationsVisible" :main-page="mainPage" />
+    <TheGallery v-show="galleryVisible" />
     <div class="footer"></div>
   </div>
 </template>
 
 <script>
-import TheMenu from "./components/Menu.vue";
+import Menu from "./components/Menu.vue";
+import Reservations from "./components/Reservations.vue";
+import Gallery from "./components/Gallery.vue"
 
 export default {
   components: {
-    TheMenu: TheMenu,
+    TheMenu: Menu,
+    TheReservations: Reservations,
+    TheGallery: Gallery
   },
   data() {
     return {
@@ -179,6 +189,7 @@ export default {
       menuVisible: false,
       galleryVisible: false,
       reservationsVisible: false,
+      mobileDropdownVisible: false,
     };
   },
   methods: {
@@ -196,28 +207,45 @@ export default {
       }
     },
     mainPage() {
+      const hamburgerButton =
+        document.getElementsByClassName("mobile__menu")[0];
+      hamburgerButton.classList.remove("opened");
+      this.mobileDropdownVisible = false;
       this.mainPageVisible = true;
       this.menuVisible = false;
       this.galleryVisible = false;
       this.reservationsVisible = false;
     },
     menuPage() {
+      this.toggleHamburgerButton();
       this.mainPageVisible = false;
       this.menuVisible = true;
       this.galleryVisible = false;
       this.reservationsVisible = false;
     },
     galleryPage() {
+      this.toggleHamburgerButton();
       this.mainPageVisible = false;
       this.menuVisible = false;
       this.galleryVisible = true;
       this.reservationsVisible = false;
     },
     reservationsPage() {
+      this.toggleHamburgerButton();
       this.mainPageVisible = false;
       this.menuVisible = false;
       this.galleryVisible = false;
       this.reservationsVisible = true;
+    },
+    toggleHamburgerButton() {
+      this.mobileDropdownVisible = !this.mobileDropdownVisible;
+      const hamburgerButton =
+        document.getElementsByClassName("mobile__menu")[0];
+      hamburgerButton.classList.toggle("opened");
+      hamburgerButton.setAttribute(
+        "aria-expanded",
+        hamburgerButton.classList.contains("opened")
+      );
     },
   },
 };
@@ -359,8 +387,8 @@ header {
     fill: none;
     stroke: white;
     stroke-width: 6;
-    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
-      stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: stroke-dasharray 200ms cubic-bezier(0.4, 0, 0.2, 1),
+      stroke-dashoffset 200ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   .line1 {
     stroke-dasharray: 60 207;
@@ -394,20 +422,43 @@ header {
 .mobile__dropdown {
   position: fixed;
   width: 100%;
-  background-color: white;
-  font-family: "Rubik", sans-serif;
+  background-color: rgb(189, 3, 3);
   font-size: 1.3rem;
+  top: 10vh;
+  @media screen and (max-width: 500px) {
+    top: 7vh;
+  }
+  @media screen and (min-width: 1080px) {
+    display: none;
+  }
   ul {
     li {
+      border-top: 3px solid white;
+      width: 100%;
+      font-family: "Rubik", sans-serif;
       border-bottom: 2px solid green;
       padding: 1.5rem;
       text-align: center;
+      background-color: rgb(189, 3, 3);
       &:active {
         color: white;
-        background-color:  rgb(8, 98, 8);
+        background-color: rgb(8, 98, 8);
       }
-
+      animation-name: mobile_dropdown_animation;
+      animation-duration: 100ms;
+      animation-timing-function: ease-out;
     }
+  }
+}
+
+@keyframes mobile_dropdown_animation {
+  0% {
+    height: 0%;
+    font-size: 0.2rem;
+    padding: 0.4rem;
+  }
+  100% {
+    height: auto;
   }
 }
 
