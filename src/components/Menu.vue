@@ -133,8 +133,8 @@
           <div class="dish__description">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
-              unde officia asperiores, quam provident atque.Porro unde officia
-              asperiores.
+              unde officia asperiores, quam provident atque.Porro
+              unde officia asperiores.
             </p>
           </div>
         </div>
@@ -143,13 +143,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {};
-  },
-};
-</script>
 
 <style lang="scss" scoped>
 .menu__page {
@@ -176,11 +169,11 @@ export default {
   margin: 0 3vw 1rem 2.5vw;
   min-height: 30vh;
   @media screen and (max-width: 700px) {
-    min-height: 60vh;
+    min-height: 70vh;
     width: 99%;
     margin: 10px 2px 0px 2px;
   }
-  @media screen and (max-width: 350px) {
+  @media screen and (max-width: 360px) {
     min-height: 80vh;
   }
   h3 {
@@ -201,7 +194,7 @@ export default {
   div.dish__data {
     float: right;
     margin: 1%;
-    max-width: 75%;
+    max-width: 60%;
     @media screen and (max-width: 600px) {
       float: left;
       max-width: 100%;

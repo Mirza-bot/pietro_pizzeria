@@ -277,7 +277,7 @@ export default {
   margin-top: -1vh;
   padding: 0;
   width: 100vw;
-  background-image: url("src/images/shourav-sheikh-a66sGfOnnqQ-unsplash.jpg");
+  background-image: url("https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80");
   background-repeat: repeat-x;
   background-attachment: fixed;
   background-size: cover;
@@ -289,7 +289,7 @@ export default {
   margin: 0;
   padding: 0;
   width: 100vw;
-  background-image: url("src/images/vitalii-chernopyskyi-Oxb84ENcFfU-unsplash.jpg");
+  background-image: url("https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=781&q=80");
   background-repeat: repeat-x;
   background-attachment: fixed;
   background-size: cover;
