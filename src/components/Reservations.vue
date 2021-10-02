@@ -1,11 +1,14 @@
 <template>
   <div class="reservations__container">
     <h2>RESERVIERUNG</h2>
-    <div class="completion__page">
-      <h1>Vielen Dank ihre Reservierung!</h1>
-      <h4>Wir werden diese so schnell wie möglich bearbeiten. <br> Sie werden in zurück <strong style="font-size: 1.5rem">0 Sekunden</strong> geleitet.</h4>
+    <div class="completion__page" v-show="completionPage">
+      <h1 @click="redirection()">Vielen Dank ihre Reservierung!</h1>
+      <h4>
+        Wir werden diese so schnell wie möglich bearbeiten. <br />
+        Sie werden in kürze auf die Hauptseite zurück geleitet.
+      </h4>
     </div>
-    <div class="reservations__page" v-show="completionPage">
+    <div class="reservations__page" v-show="!completionPage">
       <form action="submit">
         <div class="input input__name">
           <label for="name">Name: </label
@@ -42,7 +45,7 @@
           <p v-show="dateValidation" style="color: red">Bitte Datum angeben!</p>
         </div>
         <div class="input input__reservation_text">
-          <p :class="reservationValidation">
+          <p>
             Bitte geben Sie an für wie viele Personen Sie reservieren wollen,
             sowie ob es besondere Anlässe gibt und/oder dazugehörige
             Vorbereitungen getroffen werden müssen.
@@ -55,7 +58,7 @@
             cols="25"
           ></textarea>
         </div>
-        <button type="button" @click="submitForm">Absenden</button>
+        <button type="button" @click="redirection">Absenden</button>
       </form>
     </div>
   </div>
@@ -90,11 +93,6 @@ export default {
         return true;
       } else return false;
     },
-    reservationValidation() {
-      if (this.reservationMsg === "") {
-        return "danger_red";
-      }
-    },
   },
   methods: {
     submitForm() {
@@ -109,7 +107,12 @@ export default {
         this.eMail = "";
         this.reservationMsg = "";
         this.reservationDate = "";
+        this.completionPage = false
       }
+    },
+    redirection() {
+        this.completionPage = true
+        setTimeout(() => {  this.submitForm(), console.log(this.submitForm()) }, 4000);
     },
   },
 };
@@ -178,9 +181,9 @@ export default {
 }
 
 .completion__page {
-    color: white;
-    h1 {
-        margin-top: 20%;
-    }
+  color: white;
+  h1 {
+    margin-top: 20%;
+  }
 }
 </style>
