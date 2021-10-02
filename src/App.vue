@@ -134,7 +134,7 @@
           <div class="content_image_container">
             <img
               style="height: 350px"
-              src="src\images\kateryna-moskalova--SCfP2RB7Zc-unsplash.jpg"
+              src="https://images.unsplash.com/photo-1561155707-3f9e6bb380b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
               alt="Pizza image"
             />
           </div>
@@ -143,7 +143,7 @@
           <div class="content_image_container">
             <img
               style="height: 750px"
-              src="src\images\benu-marinescu-e6ZOmEfNHLM-unsplash.jpg"
+              src="https://images.unsplash.com/photo-1558138838-76294be30005?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
               alt="Pizza image"
             />
           </div>
