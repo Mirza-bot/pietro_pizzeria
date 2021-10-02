@@ -5,7 +5,7 @@
       <div class="dish__card">
         <h3>Pizza Venezia</h3>
         <img
-          src="src\images\pizzas\6d789a91-a79e-4e8a-a374-62efa0bf3f61_d3.jpg"
+          src="https://dmkz2i5qfmsty.cloudfront.net/6d789a91-a79e-4e8a-a374-62efa0bf3f61_d3.jpg"
           alt="Pizza Venezia"
         />
         <div class="dish__data">
@@ -22,7 +22,7 @@
       <div class="dish__card">
         <h3>Pizza Spinaci</h3>
         <img
-          src="src\images\pizzas\7c80f97d-04ab-4ee1-bb12-829ab3f01255_d3.jpg"
+          src="https://dmkz2i5qfmsty.cloudfront.net/7c80f97d-04ab-4ee1-bb12-829ab3f01255_d3.jpg"
           alt="Pizza Spinaci"
         />
         <div class="dish__data">
@@ -39,7 +39,7 @@
       <div class="dish__card">
         <h3>Pizza al Prosciutto</h3>
         <img
-          src="src\images\pizzas\683c4029-195f-4692-a791-e0dc66c667bd_d3.jpg"
+          src="https://dmkz2i5qfmsty.cloudfront.net/683c4029-195f-4692-a791-e0dc66c667bd_d3.jpg"
           alt="Pizza al Prosciutto"
         />
         <div class="dish__data">
@@ -56,7 +56,7 @@
       <div class="dish__card">
         <h3>Pizza Tonno</h3>
         <img
-          src="src\images\pizzas\ab7ddbb9-2db9-419c-8046-bda2f8bcc406_d3.jpg"
+          src="https://dmkz2i5qfmsty.cloudfront.net/ab7ddbb9-2db9-419c-8046-bda2f8bcc406_d3.jpg"
           alt="Pizza Tonno"
         />
         <div class="dish__data">
@@ -73,7 +73,7 @@
       <div class="dish__card">
         <h3>Pizza Quattro Formaggi</h3>
         <img
-          src="src\images\pizzas\b0007adf-ab11-4de8-bc95-3053cecc95af_d3.jpg"
+          src="https://dmkz2i5qfmsty.cloudfront.net/b0007adf-ab11-4de8-bc95-3053cecc95af_d3.jpg"
           alt="Pizza Quatro Formaggi"
         />
         <div class="dish__data">
@@ -90,7 +90,7 @@
       <div class="dish__card">
         <h3>Calzone Pizza</h3>
         <img
-          src="src\images\pizzas\c3cf257d-48ca-4666-aa60-81e9abff6ad4_d3.jpg"
+          src="https://dmkz2i5qfmsty.cloudfront.net/c3cf257d-48ca-4666-aa60-81e9abff6ad4_d3.jpg"
           alt="Calzone Pizza"
         />
         <div class="dish__data">
@@ -107,7 +107,7 @@
       <div class="dish__card">
         <h3>Pizza Salami</h3>
         <img
-          src="src\images\pizzas\c48aa02e-da23-4e84-8e27-d9f91b8bd393_d3.jpg"
+          src="https://dmkz2i5qfmsty.cloudfront.net/c48aa02e-da23-4e84-8e27-d9f91b8bd393_d3.jpg"
           alt="Pizza Salami"
         />
         <div class="dish__data">
@@ -124,7 +124,7 @@
       <div class="dish__card">
         <h3>Pizza Pietro</h3>
         <img
-          src="src\images\pizzas\dbd46702-c8de-482c-bc9f-26bd9b66632a_d3.jpg"
+          src="https://dmkz2i5qfmsty.cloudfront.net/dbd46702-c8de-482c-bc9f-26bd9b66632a_d3.jpg"
           alt="Pizza Pietro"
         />
         <div class="dish__data">
