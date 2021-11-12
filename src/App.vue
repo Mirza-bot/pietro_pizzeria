@@ -5,40 +5,24 @@
       <nav>
         <ul>
           <li class="float__left">
-            <a href="#" @click="mainPage">Pietro's Pizzeria</a>
+            <router-link class="logo" to="/main" @click="setActive($event)">
+              Pietro's Pizzeria
+            </router-link>
           </li>
           <li>
-            <div
-              class="nav__button"
-              @click="
-                menuPage();
-                setActive($event);
-              "
-            >
-              Menü
-            </div>
+            <button class="nav__button" @click="setActive($event)">
+              <router-link to="/menu">Menü</router-link>
+            </button>
           </li>
           <li>
-            <div
-              class="nav__button"
-              @click="
-                reservationsPage();
-                setActive($event);
-              "
-            >
-              Reservierung
-            </div>
+            <button class="nav__button" @click="setActive($event)">
+              <router-link to="/reservation">Reservierung</router-link>
+            </button>
           </li>
           <li>
-            <div
-              class="nav__button"
-              @click="
-                galleryPage();
-                setActive($event);
-              "
-            >
-              Gallerie
-            </div>
+            <button class="nav__button" @click="setActive($event)">
+              <router-link to="/gallery">Gallerie</router-link>
+            </button>
           </li>
           <li class="float__right">
             <button
@@ -63,126 +47,25 @@
       </nav>
       <div class="mobile__dropdown">
         <ul>
-          <li @click="menuPage()" v-show="mobileDropdownVisible">Menü</li>
-          <li @click="reservationsPage()" v-show="mobileDropdownVisible">
-            Reservierung
+          <li v-show="mobileDropdownVisible" @click="toggleHamburgerButton">
+            <router-link to="/menu">Menü</router-link>
           </li>
-          <li @click="galleryPage()" v-show="mobileDropdownVisible">
-            Gallerie
+          <li v-show="mobileDropdownVisible" @click="toggleHamburgerButton">
+            <router-link to="/reservation"> Reservierung </router-link>
+          </li>
+          <li v-show="mobileDropdownVisible" @click="toggleHamburgerButton">
+            <router-link to="/gallery"> Gallerie </router-link>
           </li>
         </ul>
       </div>
     </header>
-    <div class="content__page" v-show="mainPageVisible">
-      <div class="section__1">
-        <div class="content__card">
-          <div class="content_text_container grid_element_wide">
-            <h2>Herzlich Wilkommen!</h2>
-            <p>
-              Tauchen Sie ein in eine italienische Welt voller kulinarischer
-              Genüsse! Bei uns wird Ihr Gaumen verwöhnt und Ihr Besuch zu einem
-              unvergesslichen Erlebnis! Wir freuen uns Sie als unseren Gast
-              begrüßen zu dürfen, bis dahin, Salute e buon Appetito!
-            </p>
-          </div>
-          <div class="content_text_container restaurant__data">
-            <h3>Adresse:</h3>
-            <span>Jägerstraße 26, 1200 Wien</span>
-            <br />
-            <h3>Öffnungszeiten:</h3>
-            <span>Mo-Sa 09:00 - 19:00</span>
-          </div>
-          <div class="content_text_container grid_element_wide">
-            <h2>Angebot:</h2>
-            <p>
-              <strong>
-                Bei einer Bestellung über 30€ erhalten Sie
-                <h2>eine 1.5L Cola-Flasche gratis dazu!</h2>
-              </strong>
-            </p>
-          </div>
-          <div
-            class="content_text_container restaurant__data grid_element_wide"
-          >
-            <h2>Besuchen Sie uns oder bestellen Sie jetzt!</h2>
-            <br />
-            <h3>Tel-Nr.: 0108150815</h3>
-            <h4>E-Mail: pietros_pizzi@pietro.pizza</h4>
-          </div>
-        </div>
-      </div>
-      <div class="section__gap">
-        <h2>Original italienisch nur mit den besten Zutaten!</h2>
-      </div>
-      <div class="section__2">
-        <div class="content__card">
-          <div class="content_text_container grid_element_wide">
-            <h3>Bio delizioso!</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Et vero
-              animi aut atque mollitia suscipit quasi optio rerum. Iusto hic
-              fugiat voluptatum porro. Quia sequi blanditiis delectus, iusto non
-              quasi!Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
-              vero animi aut atque mollitia suscipit quasi optio rerum. Iusto
-              hic fugiat voluptatum porro. Quia sequi blanditiis delectus, iusto
-              non quasi!Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Et vero animi aut atque mollitia suscipit quasi optio rerum. Iusto
-              hic fugiat voluptatum porro. Quia sequi blanditiis delectus, iusto
-              non quasi!
-            </p>
-          </div>
-          <div class="content_image_container">
-            <img
-              style="height: 350px"
-              src="https://images.unsplash.com/photo-1561155707-3f9e6bb380b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-              alt="Pizza image"
-            />
-          </div>
-        </div>
-        <div class="content__card">
-          <div class="content_image_container">
-            <img
-              style="height: 750px"
-              src="https://images.unsplash.com/photo-1558138838-76294be30005?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-              alt="Pizza image"
-            />
-          </div>
-          <div class="content_text_container grid_element_wide">
-            <h3>Bio delizioso!</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Et vero
-              animi aut atque mollitia suscipit quasi optio rerum. Iusto hic
-              fugiat voluptatum porro. Quia sequi blanditiis delectus, iusto non
-              quasi!Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
-              vero animi aut atque mollitia suscipit quasi optio rerum. Iusto
-              hic fugiat voluptatum porro. Quia sequi blanditiis delectus, iusto
-              non quasi!Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Et vero animi aut atque mollitia suscipit quasi optio rerum. Iusto
-              hic fugiat voluptatum porro. Quia sequi blanditiis delectus, iusto
-              non quasi!
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <TheMenu v-show="menuVisible" />
-    <TheReservations v-show="reservationsVisible" :main-page="mainPage" />
-    <TheGallery v-show="galleryVisible" />
+    <router-view></router-view>
     <div class="footer"></div>
   </div>
 </template>
 
 <script>
-import Menu from "./components/Menu.vue";
-import Reservations from "./components/Reservations.vue";
-import Gallery from "./components/Gallery.vue"
-
 export default {
-  components: {
-    TheMenu: Menu,
-    TheReservations: Reservations,
-    TheGallery: Gallery
-  },
   data() {
     return {
       mainPageVisible: true,
@@ -206,37 +89,6 @@ export default {
         console.log("no active-id found.");
       }
     },
-    mainPage() {
-      const hamburgerButton =
-        document.getElementsByClassName("mobile__menu")[0];
-      hamburgerButton.classList.remove("opened");
-      this.mobileDropdownVisible = false;
-      this.mainPageVisible = true;
-      this.menuVisible = false;
-      this.galleryVisible = false;
-      this.reservationsVisible = false;
-    },
-    menuPage() {
-      this.toggleHamburgerButton();
-      this.mainPageVisible = false;
-      this.menuVisible = true;
-      this.galleryVisible = false;
-      this.reservationsVisible = false;
-    },
-    galleryPage() {
-      this.toggleHamburgerButton();
-      this.mainPageVisible = false;
-      this.menuVisible = false;
-      this.galleryVisible = true;
-      this.reservationsVisible = false;
-    },
-    reservationsPage() {
-      this.toggleHamburgerButton();
-      this.mainPageVisible = false;
-      this.menuVisible = false;
-      this.galleryVisible = false;
-      this.reservationsVisible = true;
-    },
     toggleHamburgerButton() {
       this.mobileDropdownVisible = !this.mobileDropdownVisible;
       const hamburgerButton =
@@ -252,50 +104,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// Backroung-Image-Sections
-
-.section__gap {
-  background-color: rgb(8, 98, 8);
-  border-top: 3px solid white;
-  border-bottom: 3px solid white;
-  height: 10vh;
-  min-height: 80px;
-  text-align: center;
-  h2 {
-    color: white;
-    padding-top: 1.2rem;
-    font-family: "Bonheur Royale", cursive, sans-serif;
-    font-size: 3rem;
-    @media screen and (max-width: 500px) {
-      font-size: 2rem;
-      padding: 0;
-    }
-  }
-}
-
-.section__1 {
-  margin-top: -1vh;
-  padding: 0;
-  width: 100vw;
-  background-image: url("https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80");
-  background-repeat: repeat-x;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  z-index: -10;
-}
-
-.section__2 {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  background-image: url("https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=781&q=80");
-  background-repeat: repeat-x;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  z-index: -10;
-}
 // Navbar and Header Styles
 
 header {
@@ -326,9 +134,28 @@ header {
     text-shadow: -3px 1px 1px rgba(32, 138, 55, 0.7);
     li {
       display: inline-block;
+      button {
+        border: none;
+        background: rgb(189, 3, 3);
+        a#active {
+          text-decoration: underline;
+          &:hover {
+            text-shadow: 0px 0px 6px rgb(202, 144, 144);
+          }
+        }
+      }
+      a.logo {
+        font-size: 5rem;
+        @media screen and (max-width: 500px) {
+          font-size: 2.2rem;
+        }
+        @media screen and (min-width: 501px) and (max-width: 800px) {
+          font-size: 3.5rem;
+        }
+      }
       a {
         text-decoration: none;
-        font-size: 5rem;
+        font-size: 2rem;
         color: white;
         @media screen and (max-width: 500px) {
           font-size: 2.2rem;
@@ -337,12 +164,7 @@ header {
           font-size: 3.5rem;
         }
       }
-      div#active {
-        text-decoration: underline;
-        &:hover {
-          text-shadow: 0px 0px 6px rgb(202, 144, 144);
-        }
-      }
+
       .nav__button {
         font-family: "Rubik", sans-serif;
         font-size: 2rem;
@@ -368,6 +190,7 @@ header {
     }
   }
   //Mobile: Hamburger-Button
+
   .mobile__menu {
     background-color: transparent;
     border: none;
@@ -419,7 +242,7 @@ header {
   }
 }
 //Mobile: Dropdown-Menu
-.mobile__dropdown {
+div.mobile__dropdown {
   position: fixed;
   width: 100%;
   background-color: rgb(189, 3, 3);
@@ -430,35 +253,59 @@ header {
   }
   @media screen and (min-width: 1080px) {
     display: none;
+    animation-name: mobile_dropdown_container_animation;
+    animation-duration: 1300ms;
+    animation-timing-function: ease-out;
   }
   ul {
     li {
-      border-top: 3px solid white;
+      border-bottom: 3px solid white;
       width: 100%;
+      height: 10vh;
       font-family: "Rubik", sans-serif;
-      border-bottom: 2px solid green;
-      padding: 1.5rem;
       text-align: center;
       background-color: rgb(189, 3, 3);
       &:active {
         color: white;
         background-color: rgb(8, 98, 8);
       }
-      animation-name: mobile_dropdown_animation;
-      animation-duration: 100ms;
-      animation-timing-function: ease-out;
+
+      a {
+        font-size: 2rem;
+        display: block;
+        height: 100%;
+        width: 100%;
+        line-height: 10vh;
+        text-decoration: none;
+        animation-name: mobile_dropdown_animation;
+        animation-duration: 200ms;
+        animation-timing-function: ease-out;
+      }
     }
   }
 }
 
 @keyframes mobile_dropdown_animation {
   0% {
-    height: 0%;
+    height: 1vh;
     font-size: 0.2rem;
     padding: 0.4rem;
+    transform: (scaleY(0));
+    opacity: 0;
   }
   100% {
-    height: auto;
+    transform: (scaleY(1));
+    opacity: 0.7;
+  }
+}
+
+@keyframes mobile_dropdown_container_animation {
+  0% {
+    transform: scaleY(0);
+  }
+
+  100% {
+    transform: scaleY(1);
   }
 }
 
@@ -469,68 +316,6 @@ header {
 
 .float__left {
   float: left;
-}
-// Content Page Styles
-.content__page {
-  margin-top: 12vh;
-  width: 100vw;
-  bottom: 0px;
-  @media screen and (max-width: 500px) {
-    margin-top: 6vh;
-  }
-}
-.content__card {
-  font-family: "Rubik", sans-serif;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  width: 100vw;
-  background-color: rgba(0, 0, 0, 0.42);
-  @media screen and (max-width: 800px) {
-    grid-template-columns: 1fr;
-  }
-}
-.content_image_container {
-  width: 40vw;
-  margin-bottom: -5px;
-  @media screen and (max-width: 800px) {
-    width: 100vw;
-  }
-  img {
-    width: 100%;
-    object-fit: cover;
-  }
-}
-
-.content_text_container {
-  color: white;
-  font-size: 1.5rem;
-  margin: 2rem;
-  min-height: 60px;
-}
-
-.grid_element_wide {
-  grid-column: span 2 / auto;
-}
-
-.grid_element_whole_width {
-  grid-column: span 3 / auto;
-}
-
-.restaurant__data {
-  color: white;
-  font-size: 2rem;
-  background-color: rgba(180, 22, 22, 0.767);
-  border: 3px solid white;
-  border-radius: 30px;
-  padding: 10px;
-  word-wrap: break-word;
-  @media screen and (max-width: 600px) {
-    font-size: 1.3rem;
-    padding: 20px;
-  }
-  h2 {
-    font-family: "Bonheur Royale", cursive, sans-serif;
-  }
 }
 
 .footer {

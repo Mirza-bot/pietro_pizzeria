@@ -12,8 +12,14 @@
       <form action="submit">
         <div class="input input__name">
           <label for="name">Name: </label
-          ><input v-model="name" type="text" id="name" autocomplete="name" />
-          <p v-show="nameValidation" style="color: red">
+          ><input
+            v-model="name"
+            type="text"
+            id="name"
+            autocomplete="name"
+            @keyup="nameValidation"
+          />
+          <p v-show="!nameValid" style="color: red">
             Bitte füllen Sie dieses Feld aus!
           </p>
         </div>
@@ -24,9 +30,10 @@
             type="email"
             id="email"
             autocomplete="email"
+            @keyup="mailValidation"
           />
-          <p v-show="eMailValidation" style="color: red">
-            Bitte füllen Sie dieses Feld aus!
+          <p v-show="!eMailValid" style="color: red">
+            Bitte geben Sie eine gültige E-Mail-Adresse ein!
           </p>
         </div>
         <div class="input input__tel">
@@ -41,8 +48,9 @@
             min="2021-10-01"
             max="2023-12-31"
             v-model="reservationDate"
+            @mouseleave="dateValidation"
           />
-          <p v-show="dateValidation" style="color: red">Bitte Datum angeben!</p>
+          <p v-show="!dateValid" style="color: red">Bitte ein Datum angeben!</p>
         </div>
         <div class="input input__reservation_text">
           <p>
@@ -66,7 +74,6 @@
 
 <script>
 export default {
-  props: ["mainPage"],
   data() {
     return {
       name: "",
@@ -75,44 +82,48 @@ export default {
       reservationDate: "",
       reservationMsg: "",
       completionPage: false,
+      nameValid: true,
+      eMailValid: true,
+      dateValid: true,
     };
-  },
-  computed: {
-    nameValidation() {
-      if (this.name === "") {
-        return true;
-      } else return false;
-    },
-    eMailValidation() {
-      if (this.eMail === "") {
-        return true;
-      } else return false;
-    },
-    dateValidation() {
-      if (this.reservationDate === "") {
-        return true;
-      } else return false;
-    },
   },
   methods: {
     submitForm() {
+      this.$router.push({ path: "/main" });
+      this.name = "";
+      this.eMail = "";
+      this.reservationMsg = "";
+      this.reservationDate = "";
+      this.completionPage = false;
+    },
+    redirection() {
       if (
         this.name !== "" &&
         this.eMail !== "" &&
+        this.eMail.includes("@") &&
         this.reservationMsg !== "" &&
         this.reservationDate !== ""
       ) {
-        this.mainPage();
-        this.name = "";
-        this.eMail = "";
-        this.reservationMsg = "";
-        this.reservationDate = "";
-        this.completionPage = false
+        this.completionPage = true;
+        setTimeout(() => {
+          this.submitForm();
+        }, 4000);
       }
     },
-    redirection() {
-        this.completionPage = true
-        setTimeout(() => {  this.submitForm(), console.log(this.submitForm()) }, 4000);
+    nameValidation() {
+      if (this.name === "" || this.name === undefined) {
+        this.nameValid = false;
+      } else this.nameValid = true;
+    },
+    mailValidation() {
+      if (this.eMail === "" || this.eMail === undefined || !this.eMail.includes("@")) {
+        this.eMailValid = false;
+      } else this.eMailValid = true;
+    },
+    dateValidation() {
+      if (this.reservationDate === "" || this.reservationDate === undefined) {
+        this.dateValid = false;
+      } else this.dateValid = true;
     },
   },
 };

@@ -77,9 +77,9 @@
     grid-template-columns: repeat(auto-fill, minmax(240px, 360px));
   }
   .card {
-    animation: cardEntrance 1000ms ease-out;
+    animation: cardEntrance 500ms ease-out;
     animation-fill-mode: backwards;
-    animation-delay: 200ms;
+    animation-delay: 100ms;
     @media screen and (min-width: 400px) and (max-width: 900px) {
       grid-column: span 2 / auto;
     }
